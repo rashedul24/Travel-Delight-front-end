@@ -16,7 +16,7 @@ const Header = () => {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-center fs-4">
               <Nav.Link as={Link} to="/home">Home</Nav.Link>
-              <Nav.Link as={Link} to="/departments">Departments</Nav.Link>
+              <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
           {/* {user?.displayName ?
            <Button onClick={logOut} variant="warning">Logout</Button> :

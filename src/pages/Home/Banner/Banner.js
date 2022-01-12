@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 import './Banner.css';
 
 const Banner = () => {
-  const [banners, setBanners] = useState();
+  const [banners, setBanners] = useState([]);
   useEffect(() => {
     fetch("banner.json")
       .then(res => res.json())
