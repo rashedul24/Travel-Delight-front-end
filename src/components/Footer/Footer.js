@@ -18,7 +18,7 @@ const Footer = () => {
          <p>{ telephone} (+880) 123 456 7890</p>
        </div>
        <div className="col-md-6">
-       <h4>Email Us</h4>
+       <h4>Email</h4>
          <p>travel@delight.com</p>
        </div>
      </div>
