@@ -2,10 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartPlus,
-  faCoffee,
   faMap,
   faShoePrints,
-  faStepForward,
   faUserShield,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Process.css";
@@ -17,7 +15,7 @@ const Process = () => {
   const shield = <FontAwesomeIcon icon={faUserShield} />;
   return (
     <div>
-      <h1 className="text-center my-5 text-success">
+      <h1 className="text-center my-5 fst-italic text-success">
         We Make All The
         <br />
         Process Easy

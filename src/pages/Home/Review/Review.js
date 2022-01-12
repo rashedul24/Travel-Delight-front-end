@@ -11,7 +11,7 @@ const Review = () => {
       <Carousel>
         <Carousel.Item interval={1000}>
           <div className="review">
-            <h4>
+            <h4 className="fst-italic">
               "Great job, I will definitely be ordering again! After using
               booking tour my business skyrocketed! Man, this thing is getting
               better and better as I learn more about it. "
@@ -31,7 +31,7 @@ const Review = () => {
         </Carousel.Item>
         <Carousel.Item interval={1000}>
           <div className="review">
-            <h4>
+            <h4 className="fst-italic">
               "Needless to say we are extremely satisfied with the results.
               Booking tour was the best investment I ever made. Nice work on
               your booking tour. Booking tour impressed."
@@ -51,7 +51,7 @@ const Review = () => {
         </Carousel.Item>
         <Carousel.Item interval={1000}>
           <div className="review">
-            <h4>
+            <h4 className="fst-italic">
               “This was an amazing trip! There were so many highlights... our
               outstanding, kind, patient, amazing leader Gustavo!! What an
               absolute saint. He was so organized and insightful!”{" "}
