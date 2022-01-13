@@ -4,9 +4,10 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
-import TourDetails from "./pages/TourDetails/TourDetails";
 import Login from "./pages/Login/Login";
 import AuthProvider from "./context/AuthProvider";
+import OrderDetails from "./pages/OrderDetails/OrderDetails";
+import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="home" element={<Home/>} />
-          <Route path="singleTour/:id" element={<TourDetails/>} />
+            <Route path="singleTour/:id" element={<PrivateRoute>
+              <OrderDetails />
+            </PrivateRoute>} />
           <Route path="login" element={<Login/>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>

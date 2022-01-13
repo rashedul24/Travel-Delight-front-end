@@ -1,0 +1,70 @@
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import "./OrderDetails.css";
+
+const OrderDetails = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { user } = useAuth();
+  const onSubmit = (data) => {};
+  const { id } = useParams();
+  const [tourDetails, setTourDetails] = useState([]);
+  const [uniqueTour, setUniqueTour] = useState({});
+  useEffect(() => {
+    fetch("/tours.json")
+      .then((res) => res.json())
+      .then((data) => setTourDetails(data));
+  }, []);
+
+  useEffect(() => {
+    const tour = tourDetails.find((tourInfo) => tourInfo?.id === id);
+    setUniqueTour(tour);
+  }, [tourDetails]);
+  return (
+    <div className="row d-flex">
+      <h1 className="text-center fw-bold fst-italic fs-2 mt-3">
+        Booking Information
+      </h1>
+      <div className="my-2 text-center col-6">
+        <h4 className="my-5 "> {uniqueTour?.name} </h4>
+        <img className="rounded w-75 mb-4" src={uniqueTour?.img} alt="" />
+        <p>
+          <span className="fw-bold fs-5">
+            Description:
+            <br />
+          </span>
+          {uniqueTour?.description}
+        </p>
+      </div>
+
+      <div className="col-6">
+        <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
+
+          <h4 className="ms-5">Client Details</h4>
+          
+          <input defaultValue={user.displayName} {...register("name")} />
+
+          <input
+            defaultValue={user.email}
+            {...register("email", { required: true })}
+          />
+
+          {errors.email && (
+            <span className="error">This field is required</span>
+          )}
+          <input placeholder=" Your Address" {...register("address")} />
+          <input placeholder=" Your Number" {...register("phone")} />
+
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default OrderDetails;
