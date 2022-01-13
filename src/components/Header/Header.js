@@ -3,11 +3,11 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import useAuth from "../../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const logo = <FontAwesomeIcon icon={faGlobe} />;
-  // const { user, logOut } = useAuth();
+  const { user, logOut } = useAuth();
   return (
 
         <Navbar bg="dark" variant="dark"  collapseOnSelect expand="lg" sticky="top" className="py-4">
@@ -18,12 +18,12 @@ const Header = () => {
               <Nav.Link as={Link} to="/home">Home</Nav.Link>
               <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
-          {/* {user?.displayName ?
-           <Button onClick={logOut} variant="warning">Logout</Button> :
+          {user?.email ?
+           <Button onClick={logOut} className="me-2" variant="warning">Logout</Button> :
             <Nav.Link as={Link} to="/Login">Login</Nav.Link>}
               <Navbar.Text>
              Signed in as: <a href="#login">{user?.displayName}</a>
-              </Navbar.Text> */}
+              </Navbar.Text>
             </Navbar.Collapse>
           </Container>
         </Navbar>
