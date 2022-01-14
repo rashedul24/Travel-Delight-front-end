@@ -4,7 +4,7 @@ import SingleTour from "../SingleTour/SingleTour";
 const AllTour = () => {
   const [tours, setTours] = useState([]);
   useEffect(() => {
-    fetch("tours.json")
+    fetch("http://localhost:5000/tours")
       .then((res) => res.json())
       .then((data) => setTours(data));
   }, []);
@@ -13,7 +13,7 @@ const AllTour = () => {
       <h1 className="text-primary text-center my-4">Upcoming Tours</h1>
 
       {tours.map((tour) => (
-        <SingleTour key={tour.id} tour={tour}></SingleTour>
+        <SingleTour key={tour._id} tour={tour}></SingleTour>
       ))}
     </div>
   );

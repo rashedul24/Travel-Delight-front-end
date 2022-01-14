@@ -9,6 +9,7 @@ import AuthProvider from "./context/AuthProvider";
 import OrderDetails from "./pages/OrderDetails/OrderDetails";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import AddTour from "./pages/AddTour/AddTour";
+import ManageTours from "./pages/ManageTours/ManageTours";
 
 function App() {
   return (
@@ -23,7 +24,12 @@ function App() {
               <OrderDetails />
             </PrivateRoute>} />
           <Route path="login" element={<Login/>} />
-          <Route path="addTour" element={<AddTour/>} />
+            <Route path="addTour" element={<PrivateRoute>
+              <AddTour/>
+          </PrivateRoute>} />
+            <Route path="manageTours" element={<PrivateRoute>
+              <ManageTours/>
+          </PrivateRoute>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>
         <Footer/>

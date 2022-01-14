@@ -13,18 +13,12 @@ const OrderDetails = () => {
   const { user } = useAuth();
   const onSubmit = (data) => {};
   const { id } = useParams();
-  const [tourDetails, setTourDetails] = useState([]);
   const [uniqueTour, setUniqueTour] = useState({});
   useEffect(() => {
-    fetch("/tours.json")
+    fetch(`http://localhost:5000/tours/${id}`)
       .then((res) => res.json())
-      .then((data) => setTourDetails(data));
+      .then((data) => setUniqueTour(data));
   }, []);
-
-  useEffect(() => {
-    const tour = tourDetails.find((tourInfo) => tourInfo?.id === id);
-    setUniqueTour(tour);
-  }, [tourDetails]);
   return (
     <div className="row d-flex">
       <h1 className="text-center fw-bold fst-italic fs-2 mt-3">
@@ -33,7 +27,7 @@ const OrderDetails = () => {
       <div className="my-2 text-center col-6">
         <h4 className="my-5 "> {uniqueTour?.name} </h4>
         <img className="rounded w-75 mb-4" src={uniqueTour?.img} alt="" />
-        <p>
+        <p className="mx-4">
           <span className="fw-bold fs-5">
             Description:
             <br />

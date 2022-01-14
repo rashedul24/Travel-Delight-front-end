@@ -8,6 +8,7 @@ import useAuth from "../../hooks/useAuth";
 const Header = () => {
   const logo = <FontAwesomeIcon icon={faGlobe} />;
   const { user, logOut } = useAuth();
+  console.log(user);
   return (
 
         <Navbar bg="dark" variant="dark"  collapseOnSelect expand="lg" sticky="top" className="py-4">
@@ -16,14 +17,15 @@ const Header = () => {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-center fs-4">
               <Nav.Link as={Link} to="/home">Home</Nav.Link>
-              <Nav.Link as={Link} to="/destinations">Destinations</Nav.Link>
+              <Nav.Link as={Link} to="/addTour">Add Tour</Nav.Link>
+              <Nav.Link as={Link} to="/manageTours">Manage Tours</Nav.Link>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
           {user?.email ?
            <Button onClick={logOut} className="me-2" variant="warning">Logout</Button> :
             <Nav.Link as={Link} to="/Login">Login</Nav.Link>}
               <Navbar.Text>
             Signed in as: <a className="text-decoration-none fst-italic fs-2" href="#login">{user?.displayName} 
-            <img className="rounded-circle ms-3" src={user.photoURL } alt="" />
+            <img className="rounded-circle ms-3" src={user.photoURL} alt="" />
             </a>
               </Navbar.Text>
             </Navbar.Collapse>
