@@ -22,7 +22,7 @@ const Header = () => {
            <Button onClick={logOut} className="me-2" variant="warning">Logout</Button> :
             <Nav.Link as={Link} to="/Login">Login</Nav.Link>}
               <Navbar.Text>
-            Signed in as: <a className="text-decoration-none fst-italic" href="#login">{user?.displayName} 
+            Signed in as: <a className="text-decoration-none fst-italic fs-2" href="#login">{user?.displayName} 
             <img className="rounded-circle ms-3" src={user.photoURL } alt="" />
             </a>
               </Navbar.Text>
