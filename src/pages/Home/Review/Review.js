@@ -52,7 +52,7 @@ const Review = () => {
         <Carousel.Item interval={1000}>
           <div className="review">
             <h4 className="fst-italic">
-              “This was an amazing trip! There were so many highlights... our
+              “An amazing trip! There were so many highlights... our
               outstanding, kind, patient, amazing leader Gustavo!! What an
               absolute saint. He was so organized and insightful!”{" "}
             </h4>

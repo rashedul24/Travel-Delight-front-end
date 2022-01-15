@@ -19,7 +19,7 @@ const OrderDetails = () => {
     }
     console.log(data)
   
-    fetch('http://localhost:5000/bookings', {
+    fetch('https://pacific-reaches-16033.herokuapp.com/bookings', {
       method: 'POST',
       headers: {
         "content-type": "application/json",
@@ -38,7 +38,7 @@ const OrderDetails = () => {
   const [uniqueTour, setUniqueTour] = useState({});
   
   useEffect(() => {
-    fetch(`http://localhost:5000/tours/${id}`)
+    fetch(`https://pacific-reaches-16033.herokuapp.com/tours/${id}`)
       .then((res) => res.json())
       .then((data) => setUniqueTour(data));
   }, []);

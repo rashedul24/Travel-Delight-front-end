@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 const ManageBooking = () => {
   const [bookings, setbookings] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bookings")
+    fetch("https://pacific-reaches-16033.herokuapp.com/bookings")
       .then((res) => res.json())
       .then((data) => setbookings(data));
   }, []);
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/bookings/${id}`;
+    const permit = window.confirm('Are you sure? Deleted data can not retrieve.');
+    if (permit) {
+      const url = `https://pacific-reaches-16033.herokuapp.com/bookings/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -21,6 +23,7 @@ const ManageBooking = () => {
           setbookings(rest);
         }
       });
+    }
   };
   console.log(bookings);
   return (
@@ -32,6 +35,7 @@ const ManageBooking = () => {
             <img className="w-25 mb-2 rounded" src={booking.tour.img} alt="" />
             <h3>Tour Name: {booking.tour.name}</h3>
             <h4>Client: {booking.client}</h4>
+            <h5>Email: {booking.email}</h5>
             <button onClick={() => handleDelete(booking._id)} className="btn btn-danger px-3 m-3">Delete</button>
 
           

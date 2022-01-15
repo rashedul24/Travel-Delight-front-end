@@ -9,7 +9,7 @@ const AddTour = () => {
   const onSubmit = data => {
     console.log(data)
 
-    axios.post('http://localhost:5000/tours', data)
+    axios.post('https://pacific-reaches-16033.herokuapp.com/tours', data)
       .then(res => {
         if (res.data.insertedId) {
           alert('Tour added successfully')

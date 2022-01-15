@@ -4,7 +4,7 @@ import SingleTour from "../SingleTour/SingleTour";
 const AllTour = () => {
   const [tours, setTours] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/tours")
+    fetch("https://pacific-reaches-16033.herokuapp.com/tours")
       .then((res) => res.json())
       .then((data) => setTours(data));
   }, []);
