@@ -9,7 +9,7 @@ import AuthProvider from "./context/AuthProvider";
 import OrderDetails from "./pages/OrderDetails/OrderDetails";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import AddTour from "./pages/AddTour/AddTour";
-import ManageTours from "./pages/ManageTours/ManageTours";
+import ManageBooking from "./pages/ManageBooking/ManageBooking";
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
             <Route path="addTour" element={<PrivateRoute>
               <AddTour/>
           </PrivateRoute>} />
-            <Route path="manageTours" element={<PrivateRoute>
-              <ManageTours/>
+            <Route path="manageBooking" element={<PrivateRoute>
+              <ManageBooking/>
           </PrivateRoute>} />
           <Route path="*" element={<NotFound/>} />
         </Routes>

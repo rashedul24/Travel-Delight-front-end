@@ -12,7 +12,13 @@ const OrderDetails = () => {
   } = useForm();
   const { user } = useAuth();
   const onSubmit = (data) => {
-    console.log(data);
+    data.tour = {
+      "name": uniqueTour.name,
+      
+      "img": uniqueTour.img
+    }
+    console.log(data)
+  
     fetch('http://localhost:5000/bookings', {
       method: 'POST',
       headers: {
@@ -30,6 +36,7 @@ const OrderDetails = () => {
   };
   const { id } = useParams();
   const [uniqueTour, setUniqueTour] = useState({});
+  
   useEffect(() => {
     fetch(`http://localhost:5000/tours/${id}`)
       .then((res) => res.json())
@@ -56,7 +63,7 @@ const OrderDetails = () => {
         <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
           <h4 className="ms-5">Client Details</h4>
 
-          <input defaultValue={user.displayName} {...register("name")} />
+          <input defaultValue={user.displayName} {...register("client")} />
 
           <input
             defaultValue={user.email}
