@@ -7,11 +7,27 @@ import "./OrderDetails.css";
 const OrderDetails = () => {
   const {
     register,
-    handleSubmit,
+    handleSubmit, reset,
     formState: { errors },
   } = useForm();
   const { user } = useAuth();
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    console.log(data);
+    fetch('http://localhost:5000/bookings', {
+      method: 'POST',
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.insertedId) {
+          alert('Tour Booked')
+          reset()
+       }
+      });
+  };
   const { id } = useParams();
   const [uniqueTour, setUniqueTour] = useState({});
   useEffect(() => {
@@ -38,9 +54,8 @@ const OrderDetails = () => {
 
       <div className="col-6">
         <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
-
           <h4 className="ms-5">Client Details</h4>
-          
+
           <input defaultValue={user.displayName} {...register("name")} />
 
           <input

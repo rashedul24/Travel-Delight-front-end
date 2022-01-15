@@ -8,7 +8,6 @@ import useAuth from "../../hooks/useAuth";
 const Header = () => {
   const logo = <FontAwesomeIcon icon={faGlobe} />;
   const { user, logOut } = useAuth();
-  console.log(user);
   return (
 
         <Navbar bg="dark" variant="dark"  collapseOnSelect expand="lg" sticky="top" className="py-4">
