@@ -5,7 +5,7 @@ import './Banner.css';
 const Banner = () => {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/banners")
+    fetch("https://pacific-reaches-16033.herokuapp.com/banners")
       .then(res => res.json())
     .then(data=>setBanners(data))
   },[])
