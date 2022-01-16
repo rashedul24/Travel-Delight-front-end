@@ -5,7 +5,7 @@ import './Banner.css';
 const Banner = () => {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
-    fetch("banner.json")
+    fetch("http://localhost:5000/banners")
       .then(res => res.json())
     .then(data=>setBanners(data))
   },[])
@@ -14,7 +14,7 @@ const Banner = () => {
       <Carousel fade >
       {
 banners?.map(banner=> 
-  <Carousel.Item interval={1200} key={banner.sl}>
+  <Carousel.Item interval={1200} key={banner._id}>
     <img
       className="banner-img"
       src={banner.src}
