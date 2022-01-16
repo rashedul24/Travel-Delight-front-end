@@ -47,7 +47,7 @@ const OrderDetails = () => {
       <h1 className="text-center fw-bold fst-italic fs-2 mt-3">
         Booking Information
       </h1>
-      <div className="my-2 text-center col-6">
+      <div className="my-2 text-center col-lg-6">
         <h4 className="my-5 "> {uniqueTour?.name} </h4>
         <img className="rounded w-75 mb-4" src={uniqueTour?.img} alt="" />
         <p className="mx-4">
@@ -59,7 +59,7 @@ const OrderDetails = () => {
         </p>
       </div>
 
-      <div className="col-6">
+      <div className="col-lg-6">
         <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
           <h4 className="ms-5">Client Details</h4>
 
