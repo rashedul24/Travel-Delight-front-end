@@ -16,7 +16,7 @@ const ManageBooking = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data)
         if (data.deletedCount) {
           alert("Deleted Successfully");
           const rest = bookings.filter((tour) => tour._id !== id);
@@ -25,9 +25,8 @@ const ManageBooking = () => {
       });
     }
   };
-  console.log(bookings);
   return (
-    <div className="text-center overflow-hidden" >
+    <div className="text-center" >
       <h1 className="mb-3 text-primary fst-italic">Manage Bookings</h1>
       {bookings.map((booking) => (
         <div key={booking._id}>

@@ -10,6 +10,7 @@ import OrderDetails from "./pages/OrderDetails/OrderDetails";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import AddTour from "./pages/AddTour/AddTour";
 import ManageBooking from "./pages/ManageBooking/ManageBooking";
+import MyBooking from "./pages/MyBooking/MyBooking";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path="login" element={<Login/>} />
             <Route path="addTour" element={<PrivateRoute>
               <AddTour/>
+          </PrivateRoute>} />
+            <Route path="myBooking" element={<PrivateRoute>
+              <MyBooking/>
           </PrivateRoute>} />
             <Route path="manageBooking" element={<PrivateRoute>
               <ManageBooking/>
