@@ -6,7 +6,7 @@ const MyBooking = () => {
   const [myBookings, setMyBookings] = useState([]);
   
   useEffect(() => {
-    fetch("http://localhost:5000/Bookings")
+    fetch("https://pacific-reaches-16033.herokuapp.com/Bookings")
     .then((res) => res.json())
       .then((data) => {
         setMyBookings(data.filter(booking => booking.email === user.email))
@@ -15,7 +15,7 @@ const MyBooking = () => {
   const handleDeleteBooking = (id) => {
     const permit = window.confirm('Are you sure? Deleted data can not retrieve.');
     if (permit) {
-      const url = `https://localhost:5000/bookings/${id}`;
+      const url = `https://pacific-reaches-16033.herokuapp.com/bookings/${id}`;
     fetch(url, {
       method: "DELETE",
     })
